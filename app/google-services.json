@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "328181292735",
+    "project_id": "solo-graduate",
+    "storage_bucket": "solo-graduate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328181292735:android:04074582dc3aa759d4300a",
+        "android_client_info": {
+          "package_name": "com.project.college_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328181292735-4r09pr1ffjespu36qps2sqrl1904fjru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWJEfRW-PRBLQT1oan0ddSccLoXwfMpFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328181292735-4r09pr1ffjespu36qps2sqrl1904fjru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.college_project">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.College_project">
+        <activity android:name=".teacher.PostStudentActivity"></activity>
+        <activity android:name=".teacher.StudentList" />
+        <activity android:name=".teacher.TeacherClassInside" />
+        <activity android:name=".teacher.YourClasses" />
+        <activity android:name=".teacher.StudentUploads" />
+        <activity android:name=".teacher.AddInsideClass" />
+        <activity android:name=".teacher.TercherClssList" />
+        <activity android:name=".teacher.AddClassesActivity" />
+        <activity android:name=".teacher.TeacherHomeActivity" />
+        <activity android:name=".SignupType" />
+        <activity android:name=".teacher.TeacherSignup" />
+        <activity android:name=".ResetPassActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".UploadMeterials" />
+        <activity android:name=".ShowMeterialActivity" />
+        <activity android:name=".StudyMetrialActivity" />
+        <activity android:name=".StudentActivity" />
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".InsideClassActivity" />
+        <activity android:name=".ClassroomActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

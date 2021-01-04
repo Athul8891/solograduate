@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="semester">
+        <item>SEMESTER *</item>
+        <item>FIRST</item>
+        <item>SECOND</item>
+        <item>THIRD</item>
+        <item>FOURTH</item>
+        <item>FIFTH</item>
+        <item>SIXTH</item>
+
+    </array>
+
+
+        <array name="sub">
+            <item>SUBJECT *</item>
+            <item>FIRST</item>
+            <item>SECOND</item>
+            <item>THIRD</item>
+            <item>FOURTH</item>
+            <item>FIFTH</item>
+            <item>SIXTH</item>
+
+        </array>
+    <array name="category">
+        <item>Category *</item>
+        <item>Baby Accessories</item>
+        <item>Feeding Accessories</item>
+        <item>Baby Dress</item>
+    </array>
+    <array name="subcategory">
+        <item>Quantity *</item>
+        <item>Liter</item>
+        <item>Kg</item>
+        <item>Item</item>
+    </array>
+    <array name="subcategory1" />
+    <array name="targetGender">
+        <item>Target Gender *</item>
+        <item>Unisex</item>
+        <item>Girl</item>
+        <item>Boy</item>
+    </array>
+    <array name="stock">
+        <item>Stock Status *</item>
+        <item>In Stock</item>
+        <item>Out Of Stock</item>
+    </array>
+    <array name="orderStatus">
+        <item>Set Status*</item>
+        <item>PENDING</item>
+        <item>CONFIRMED</item>
+        <item>REJECTED</item>
+        <item>SHIPPED</item>
+        <item>DELIVERED</item>
+        <item>RETURNED</item>
+    </array>
+    <array name="search_suggestions" />
+    <array name="user_type">
+        <item>Select User Type*</item>
+        <item>All Users</item>
+        <item>Admin</item>
+        <item>Executive</item>
+        <item>Retailer</item>
+        <item>Distributor</item>
+    </array>
+    <array name="users_type">
+        <item>Select User Type*</item>
+        <item>Executive</item>
+        <item>Retailer</item>
+        <item>Distributor</item>
+    </array>
+    <array name="categories">
+        <item>All Products</item>
+        <item>Baby Accessories</item>
+        <item>Feeding Accessories</item>
+        <item>Baby Dress</item>
+    </array>
+    <array name="status">
+        <item>All Orders</item>
+        <item>GET ORDERS BY DATE</item>
+        <item>PENDING</item>
+        <item>CONFIRMED</item>
+        <item>REJECTED</item>
+        <item>SHIPPED</item>
+        <item>DELIVERED</item>
+        <item>CANCELED</item>
+        <item>RETURNED</item>
+    </array>
+</resources>
