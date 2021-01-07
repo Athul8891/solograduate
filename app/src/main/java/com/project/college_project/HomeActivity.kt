@@ -66,11 +66,17 @@ class HomeActivity : AppCompatActivity() {
 //                                btLogout.visibility = View.VISIBLE
                                 startActivity(Intent(this, TeacherHomeActivity::class.java))
                                 finish()
-                            } else{
+                            }
+                            if(strTyp.toString().equals("AMD")){
+
+                                startActivity(Intent(this, AdminActivity::class.java))
+                                finish()
+
+                            }
+                            if(strTyp.toString().equals("STD")){
                                 progressBar6.visibility = View.GONE
                                 linearLayout.visibility = View.VISIBLE
                                 btLogout.visibility = View.VISIBLE
-
                             }
 
                         } else {

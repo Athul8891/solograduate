@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.college_project">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.College_project">
-        <activity android:name=".teacher.PostStudentActivity"></activity>
+        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".teacher.PostStudentActivity" />
         <activity android:name=".teacher.StudentList" />
         <activity android:name=".teacher.TeacherClassInside" />
         <activity android:name=".teacher.YourClasses" />
@@ -41,5 +40,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
