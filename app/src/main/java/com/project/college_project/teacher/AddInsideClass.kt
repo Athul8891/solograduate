@@ -33,6 +33,7 @@ class AddInsideClass : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.title = "Add Task Inside This Class"
         mAuth = FirebaseAuth.getInstance()
+        getNam()
         if(values == null ){
 
         }
@@ -48,6 +49,33 @@ class AddInsideClass : AppCompatActivity() {
             postEvent()
         }
 
+    }
+
+
+
+    private fun getNam() {
+
+        val user = mAuth.currentUser?.uid
+
+        val db = FirebaseFirestore.getInstance()
+        val docRe = db.collection("Users").document(user.toString())
+        docRe.get().addOnSuccessListener {
+            document ->
+            if (document != null) {
+                val strName = document.getString("strUsr")
+                //Toast.makeText(this,strTyp,Toast.LENGTH_SHORT).show()
+                if (strName != null) {
+
+                    etName.text =strName.toString()
+                    // Toast.makeText(this,_name,Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
+
+//                            startActivity(Intent(this, MainActivity::class.java))
+//                            finish()
+            }
+        }
     }
 
 

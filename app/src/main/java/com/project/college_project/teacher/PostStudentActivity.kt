@@ -60,11 +60,11 @@ class PostStudentActivity : AppCompatActivity() {
             tvAsses.requestFocus()
             return
         }
-        if (tvLev.text.toString().isEmpty()) {
-            tvLev.error = "Please Enter "
-            tvLev.requestFocus()
-            return
-        }
+//        if (tvLev.text.toString().isEmpty()) {
+//            tvLev.error = "Please Enter "
+//            tvLev.requestFocus()
+//            return
+//        }
         val db = FirebaseFirestore.getInstance()
 
 

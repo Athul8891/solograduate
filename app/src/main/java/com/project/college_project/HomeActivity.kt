@@ -1,5 +1,6 @@
 package com.project.college_project
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -54,29 +55,58 @@ class HomeActivity : AppCompatActivity() {
 
             val db = FirebaseFirestore.getInstance()
             val docRe = db.collection("Users").document(user.toString())
-            docRe.get()
-                    .addOnSuccessListener {
+            docRe.get().addOnSuccessListener {
                         document ->
                         if (document != null) {
                             val strTyp = document.getString("strType")
+                            val strStatus = document.getString("strStatus")
+
+
                             //Toast.makeText(this,strTyp,Toast.LENGTH_SHORT).show()
                             if (strTyp.toString().equals("TCR")) {
+
+
+                                if (strStatus.equals("1")){
+                                    startActivity(Intent(this, TeacherHomeActivity::class.java))
+                                    finish()
+                                }
+                                else{
+                                    startActivity(Intent(this, MainActivity::class.java))
+
+                                    finish()
+                                    Toast.makeText(this,"You are not authorized to this app!",Toast.LENGTH_SHORT).show()
+                                }
+//                                val strSem = document.getString("strSem")
+//
+//                                val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+//                                var editor = sharedPreference.edit()
+//                                editor.putString("strSem",strSem)
+//
+//                                editor.commit()
 //                                progressBar6.visibility = View.GONE
 //                                linearLayout.visibility = View.VISIBLE
 //                                btLogout.visibility = View.VISIBLE
-                                startActivity(Intent(this, TeacherHomeActivity::class.java))
-                                finish()
+
                             }
-                            if(strTyp.toString().equals("AMD")){
+                            if(user.toString().equals("k0MRgQAYZlWYRwnBcbpKTuLZ6762")){
 
                                 startActivity(Intent(this, AdminActivity::class.java))
                                 finish()
 
                             }
                             if(strTyp.toString().equals("STD")){
-                                progressBar6.visibility = View.GONE
-                                linearLayout.visibility = View.VISIBLE
-                                btLogout.visibility = View.VISIBLE
+
+                                if (strStatus.equals("1")){
+                                    progressBar6.visibility = View.GONE
+                                    linearLayout.visibility = View.VISIBLE
+                                    btLogout.visibility = View.VISIBLE
+                                }
+                                else{
+                                    startActivity(Intent(this, MainActivity::class.java))
+                                    finish()
+                                    Toast.makeText(this,"You are not authorized to this app!",Toast.LENGTH_SHORT).show()
+                                }
+
                             }
 
                         } else {

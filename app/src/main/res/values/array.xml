@@ -14,12 +14,21 @@
 
         <array name="sub">
             <item>SUBJECT *</item>
-            <item>FIRST</item>
-            <item>SECOND</item>
-            <item>THIRD</item>
-            <item>FOURTH</item>
-            <item>FIFTH</item>
-            <item>SIXTH</item>
+            <item>Problem Solving and Computer Programming</item>
+            <item>Discrete Mathematics</item>
+            <item>Applied Probability and Statistics</item>
+            <item>Principles of Management</item>
+            <item>Digital Fundamentals</item>
+            <item>Programming Lab</item>
+            <item>Applied Statistics Lab</item>
+            <item>Object Oriented Programming</item>
+            <item>Data Structures</item>
+            <item>Operating Systems</item>
+            <item>Operations Research</item>
+            <item>Computer Organization and Architecture</item>
+            <item>Object Oriented Programming Lab</item>
+            <item>Data Structures Lab</item>
+            <item>Computer Networks</item>
 
         </array>
     <array name="category">

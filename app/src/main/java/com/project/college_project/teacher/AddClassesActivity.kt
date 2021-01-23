@@ -16,6 +16,8 @@ class AddClassesActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var uId: String
+     var _name =  ""
+
     private val TAG = "SignupActivity"
     private lateinit var loadingSnackbar: Snackbar
 
@@ -28,12 +30,41 @@ class AddClassesActivity : AppCompatActivity() {
         actionBar!!.title = ""
         mAuth = FirebaseAuth.getInstance()
 
+
+        getNam()
+
+
         btCrtClss.setOnClickListener { v->
             view = v
             postEvent()
         }
 
 
+    }
+
+    private fun getNam() {
+
+        val user = mAuth.currentUser?.uid
+
+        val db = FirebaseFirestore.getInstance()
+        val docRe = db.collection("Users").document(user.toString())
+        docRe.get().addOnSuccessListener {
+            document ->
+            if (document != null) {
+                val strName = document.getString("strUsr")
+                //Toast.makeText(this,strTyp,Toast.LENGTH_SHORT).show()
+                if (strName != null) {
+                    _name=strName
+                    etTrNm.text =_name.toString()
+                   // Toast.makeText(this,_name,Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
+
+//                            startActivity(Intent(this, MainActivity::class.java))
+//                            finish()
+            }
+        }
     }
 
     private fun postEvent() {
@@ -54,9 +85,10 @@ class AddClassesActivity : AppCompatActivity() {
             return
         }
 
-        if (etClsYr.text.toString().isEmpty()) {
-            etClsYr.error = "Please enter year or class"
-            etClsYr.requestFocus()
+        if (etClsYr.selectedItem.toString().isEmpty()) {
+            Toast.makeText(this,"Please enter year or class",Toast.LENGTH_SHORT).show()
+//            etClsYr.error = "Please enter year or class"
+//            etClsYr.requestFocus()
             return
         }
 
@@ -70,38 +102,72 @@ class AddClassesActivity : AppCompatActivity() {
             details.put("strClssId", time.toString())
             details.put("strName", etTrNm.text.toString())
             details.put("strTitle", etClsNm.text.toString())
-            details.put("strYr", etClsYr.text.toString())
+            details.put("strYr", etClsYr.selectedItem.toString())
             details.put("strTrId", user.toString())
 
 
 
-            db.collection("Class").add(details)
-                .addOnSuccessListener { documentReference  ->
-                    /* Snackbar.make(
-                         addAddressLayout,
-                         "Address Successfully Updated!",
-                         Snackbar.LENGTH_SHORT
-                     ).show()*/
-                    Snackbar.make(
-                        view,
-                        "Class Created Successfully!",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                    progressBar2.visibility = View.GONE
+            db.collection("Class")
+                    .document(user+etClsYr.selectedItem.toString())
+                    .get()
+                    .addOnSuccessListener { doc->
+                        if(doc.exists()) {
+                            Toast.makeText(this, "You Already Made class in this semester :-( !", Toast.LENGTH_LONG).show()
 
-                    btCrtClss.visibility = View.VISIBLE
-                    // finish()
-                    //  startActivity(Intent(this, EventActivity::class.java))
+                        //    Toast.makeText(this, "Failed :-( !", Toast.LENGTH_LONG).show()
+                            progressBar2.visibility = View.GONE
+
+                            btCrtClss.visibility = View.VISIBLE
 
 
-                }.addOnFailureListener { exception: java.lang.Exception ->
-                    //  Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
-                    progressBar2.visibility = View.GONE
+                        } else {
+                            db.collection("Class").document(user+etClsYr.selectedItem.toString()).set(details)
+                                    .addOnSuccessListener { document  ->
+                                        /* Snackbar.make(
+                                             addAddressLayout,
+                                             "Address Successfully Updated!",
+                                             Snackbar.LENGTH_SHORT
+                                         ).show()*/
 
-                    btCrtClss.visibility = View.VISIBLE
-                }
+
+
+                                        Snackbar.make(
+                                                view,
+                                                "Class Created Successfully!",
+                                                Snackbar.LENGTH_LONG
+                                        ).show()
+                                        progressBar2.visibility = View.GONE
+
+                                        btCrtClss.visibility = View.VISIBLE
+                                        // finish()
+                                        //  startActivity(Intent(this, EventActivity::class.java))
+
+
+                                    }.addOnFailureListener { exception: java.lang.Exception ->
+                                        //  Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
+                                        progressBar2.visibility = View.GONE
+
+                                        btCrtClss.visibility = View.VISIBLE
+                                    }
+
+
+                        }
+                    }
+
+
         } catch (e: Exception) {
-            Toast.makeText(this, "Failed :-( !", Toast.LENGTH_LONG).show()
+
+            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show()
+            progressBar2.visibility = View.GONE
+
+            btCrtClss.visibility = View.VISIBLE
+        }
+
+
+
+
+         catch (e: Exception) {
+            Toast.makeText(this,e.toString() , Toast.LENGTH_LONG).show()
             progressBar2.visibility = View.GONE
 
             btCrtClss.visibility = View.VISIBLE

@@ -9,6 +9,8 @@ data class Students (
     var id : String = "",
     val strUsr : String = "",
     val strSem : String = "",
-    val uId : String = ""
+    val uId : String = "",
+    val strKtu : String = ""
+
 
 ) : Parcelable

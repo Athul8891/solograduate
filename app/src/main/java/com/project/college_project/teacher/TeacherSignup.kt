@@ -145,6 +145,7 @@ class TeacherSignup : AppCompatActivity() {
             details.put("strSem", spTrSem.selectedItem.toString())
             details.put("strSub", spTrSem.selectedItem.toString())
             details.put("strType", "TCR")
+            details.put("strStatus", "2")
             details.put("uId", user.toString())
 
 

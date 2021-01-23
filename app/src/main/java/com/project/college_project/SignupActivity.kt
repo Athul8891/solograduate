@@ -133,6 +133,7 @@ class SignupActivity : AppCompatActivity() {
                 details.put("strKtu", etKtuid.text.toString())
                 details.put("strSem", spSem.selectedItem.toString())
                 details.put("strType", "STD")
+                details.put("strStatus", "2")
                 details.put("uId", user.toString())
 
 
